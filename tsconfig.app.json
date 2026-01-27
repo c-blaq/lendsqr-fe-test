@@ -24,5 +24,11 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
+
+  /* Path alias */
+  "baseUrl": ".",
+  "paths": {
+    "@/*": ["./src/*"]
+  },
   "include": ["src"]
 }
