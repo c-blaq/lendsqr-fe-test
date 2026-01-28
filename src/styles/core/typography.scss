@@ -1,0 +1,52 @@
+@use "./variables" as v;
+
+body {
+  font-family: v.$font-work-sans;
+  font-size: v.$font-size-md;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: inherit;
+  color: v.$text-primary;
+}
+
+h1 {
+  font-size: v.$font-size-xl;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: v.$font-size-lg;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: v.$font-size-md;
+  font-weight: 600;
+}
+
+.text-body {
+  font-size: v.$font-size-sm;
+  font-weight: 400;
+  color: v.$text-primary;
+}
+
+/* Muted / labels / meta text */
+.text-muted {
+  font-size: v.$font-size-xs;
+  color: v.$text-secondary;
+}
+
+/* Small helper text */
+.text-caption {
+  font-size: v.$font-size-xs;
+  font-weight: 400;
+  color: v.$text-secondary;
+}
