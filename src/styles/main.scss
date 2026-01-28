@@ -2,6 +2,6 @@
 @use "./core/variables";
 @use "./core/typography";
 
-.min-h-screen {
-  min-height: 100vh;
+.shadow-lg {
+  box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.04);
 }
