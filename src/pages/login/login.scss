@@ -36,6 +36,17 @@
     }
   }
 
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__error {
+    font-size: v.$font-size-xs;
+    color: v.$danger;
+  }
+
   &__password {
     position: relative;
 
