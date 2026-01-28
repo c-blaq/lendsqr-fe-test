@@ -1,0 +1,78 @@
+@use "@/styles/core/variables" as v;
+
+.login-form {
+  width: 100%;
+  max-width: 420px;
+  color: v.$text-primary;
+
+  h1 {
+    margin-bottom: v.$spacing-sm;
+  }
+
+  p {
+    font-size: 1.25rem;
+    color: v.$text-secondary;
+  }
+
+  form {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-lg;
+  }
+
+  input {
+    width: 100%;
+    padding: v.$spacing-md;
+    border: 2px solid rgba(v.$text-secondary, 0.15);
+    border-radius: v.$radius-sm;
+    font-size: v.$font-size-sm;
+    font-family: inherit;
+    color: v.$text-secondary;
+
+    &::placeholder {
+      color: v.$text-secondary;
+      opacity: 60%;
+    }
+  }
+
+  &__password {
+    position: relative;
+
+    button {
+      position: absolute;
+      right: v.$spacing-md;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: v.$primary;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+
+  &__forgot {
+    text-decoration: none;
+    text-align: left;
+    background: none;
+    border: none;
+    font-size: v.$font-size-sm;
+    color: v.$primary;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+
+  &__submit {
+    margin-top: v.$spacing-md;
+    padding: v.$spacing-md;
+    background-color: v.$primary;
+    color: v.$white;
+    border: none;
+    border-radius: v.$radius-md;
+    font-size: v.$font-size-sm;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}

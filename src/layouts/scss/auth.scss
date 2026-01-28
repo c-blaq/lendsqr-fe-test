@@ -1,0 +1,54 @@
+@use "@/styles/core/variables" as v;
+
+.auth {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+.auth-visual {
+  background: rgba(v.$text-secondary, 0.015);
+  padding: 4rem 0;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  &__logo {
+    height: 36px;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    margin: auto 0;
+  }
+}
+
+.auth-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: v.$font-inter;
+  color: v.$text-primary;
+  padding: v.$spacing-lg;
+}
+
+@media (max-width: 768px) {
+  .auth {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-visual {
+    display: none;
+  }
+
+  .auth-content {
+    padding: v.$spacing-lg;
+  }
+}

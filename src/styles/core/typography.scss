@@ -1,9 +1,22 @@
 @use "./variables" as v;
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: v.$font-work-sans;
   font-size: v.$font-size-md;
   line-height: 1.5;
+}
+
+a,
+button {
+  &:hover {
+    opacity: 0.75;
+  }
 }
 
 h1,
@@ -15,10 +28,11 @@ h6 {
   margin: 0;
   font-family: inherit;
   color: v.$text-primary;
+  line-height: 100%;
 }
 
 h1 {
-  font-size: v.$font-size-xl;
+  font-size: 2.5rem;
   font-weight: 700;
 }
 

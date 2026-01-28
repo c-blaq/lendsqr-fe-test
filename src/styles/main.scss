@@ -1,3 +1,7 @@
 @use "./core/fonts";
 @use "./core/variables";
 @use "./core/typography";
+
+.min-h-screen {
+  min-height: 100vh;
+}

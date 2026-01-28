@@ -6,6 +6,7 @@ import Dashboard from "@/pages/dashboard/dashboard";
 import Users from "@/pages/users/users";
 import UserDetails from "@/pages/users/user-details";
 import { RootLayout } from "@/layouts/RootLayout";
+import { AuthLayout } from "@/layouts/AuthLayout";
 
 export const router = createBrowserRouter([
   {
@@ -14,8 +15,13 @@ export const router = createBrowserRouter([
   },
 
   {
-    path: ROUTES.LOGIN,
-    element: <Login />,
+    element: <AuthLayout />,
+    children: [
+      {
+        path: ROUTES.LOGIN,
+        element: <Login />,
+      },
+    ],
   },
 
   {
