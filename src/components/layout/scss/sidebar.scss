@@ -1,0 +1,47 @@
+@use "@/styles/core/variables" as v;
+
+.sidebar {
+  width: v.$sidebar-width;
+  height: 100vh;
+  background-color: v.$white;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    padding: v.$spacing-lg;
+    height: 100px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    height: 30px;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-sm;
+    padding: 0 v.$spacing-lg;
+  }
+
+  &__link {
+    padding: v.$spacing-sm v.$spacing-md;
+    border-radius: v.$radius-sm;
+    font-size: v.$font-size-sm;
+    color: v.$text-secondary;
+    text-decoration: none;
+
+    &.active {
+      background-color: rgba(v.$primary, 0.1);
+      color: v.$secondary;
+      font-weight: 600;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}

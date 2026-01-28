@@ -19,6 +19,12 @@ button {
   }
 }
 
+button {
+  appearance: none;
+  border: none;
+  background: transparent;
+}
+
 h1,
 h2,
 h3,
