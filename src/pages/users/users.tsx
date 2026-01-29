@@ -9,6 +9,8 @@ import type { UserFiltersT, UserT } from "@/types/user";
 function Users() {
   const [loading, setLoading] = useState(true);
   const [users, setUsers] = useState<UserT[]>([]);
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
   const [filters, setFilters] = useState<UserFiltersT>({
     org: "",
     username: "",
@@ -32,6 +34,13 @@ function Users() {
     });
   }, [users, filters]);
 
+  const totalPages = Math.ceil(filteredUsers.length / pageSize);
+
+  const paginatedUsers = useMemo(() => {
+    const start = (page - 1) * pageSize;
+    return filteredUsers.slice(start, start + pageSize);
+  }, [filteredUsers, page, pageSize]);
+
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -45,6 +54,10 @@ function Users() {
     fetchUsers();
   }, []);
 
+  useEffect(() => {
+    setPage(1);
+  }, [filters]);
+
   if (loading) return <p>Loading users…</p>;
 
   return (
@@ -57,7 +70,7 @@ function Users() {
 
       <section className="users__table">
         <UsersTable
-          filteredUsers={filteredUsers}
+          filteredUsers={paginatedUsers}
           allUsers={users}
           filters={filters}
           onFilterApply={setFilters}
@@ -65,7 +78,14 @@ function Users() {
       </section>
 
       <section className="users__pagination">
-        <Pagination />
+        <Pagination
+          page={page}
+          totalPages={totalPages}
+          pageSize={pageSize}
+          totalItems={filteredUsers.length}
+          onPageChange={setPage}
+          onPageSizeChange={setPageSize}
+        />
       </section>
     </section>
   );
