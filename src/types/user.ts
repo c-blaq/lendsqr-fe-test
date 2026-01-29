@@ -10,6 +10,14 @@ export type UserT = {
   phone: number;
   dateJoined: string;
   status: UserStatusT;
+  hasLoan: boolean;
+  hasSavings: boolean;
+
+  account: {
+    balance: number;
+    accountNumber: number;
+    bank: string;
+  };
 
   profile: {
     fullName: string;
@@ -26,8 +34,9 @@ export type UserT = {
     sector: string;
     duration: string;
     officeEmail: string;
-    income: string;
-    loanRepayment: string;
+    incomeMin: number;
+    incomeMax: number;
+    loloanRepayment: number;
   };
 
   socials: {
@@ -37,7 +46,7 @@ export type UserT = {
   };
 
   guarantor: {
-    name: string;
+    fullName: string;
     phone: number;
     relationship: string;
   };

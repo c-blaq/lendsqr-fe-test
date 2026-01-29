@@ -51,7 +51,7 @@ function UsersTable({ users }: Props) {
                 </span>
               </td>
               <td className="users-table__actions">
-                <UserActionsMenu userId={user.id} />
+                <UserActionsMenu user={user} />
               </td>
             </tr>
           ))}

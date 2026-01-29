@@ -1,14 +1,22 @@
 import { DropdownMenu } from "radix-ui";
 import { useNavigate } from "react-router-dom";
+import type { UserT } from "@/types/user";
 
 import "./scss/user-actions-menu.scss";
 
 type Props = {
-  userId: string;
+  user: UserT;
 };
 
-function UserActionsMenu({ userId }: Props) {
+function UserActionsMenu({ user }: Props) {
   const navigate = useNavigate();
+
+  const saveSelectedUserToLocalStorage = () => {
+    if (user) {
+      localStorage.setItem("selectedUser", JSON.stringify(user));
+      navigate(`/users/${user.id}`);
+    }
+  };
 
   return (
     <DropdownMenu.Root>
@@ -29,7 +37,7 @@ function UserActionsMenu({ userId }: Props) {
         >
           <DropdownMenu.Item
             className="actions-menu__item"
-            onSelect={() => navigate(`/users/${userId}`)}
+            onSelect={saveSelectedUserToLocalStorage}
           >
             <img src="/icons/eye.svg" />
             View Details
