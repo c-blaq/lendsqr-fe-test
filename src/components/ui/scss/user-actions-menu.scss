@@ -1,0 +1,31 @@
+@use "@/styles/core/variables" as v;
+
+.actions-menu {
+  background-color: v.$white;
+  border-radius: v.$radius-sm;
+  padding: v.$spacing-sm 0;
+  min-width: 180px;
+  box-shadow: 0 5px 20px rgba(v.$black, 0.15);
+  z-index: 50;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: v.$spacing-sm;
+    padding: v.$spacing-sm v.$spacing-md;
+    font-size: v.$font-size-sm;
+    color: v.$text-secondary;
+    cursor: pointer;
+    user-select: none;
+    font-weight: 500;
+
+    img {
+      width: 16px;
+      height: 16px;
+    }
+
+    &:hover {
+      background-color: rgba(v.$primary, 0.15);
+    }
+  }
+}

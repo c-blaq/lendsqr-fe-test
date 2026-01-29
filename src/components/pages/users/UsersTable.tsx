@@ -1,8 +1,10 @@
+import UserActionsMenu from "@/components/ui/UserActionsMenu";
 import "./scss/users-table.scss";
 
 type UserStatus = "active" | "inactive" | "pending" | "blacklisted";
 
 type User = {
+  id: string;
   org: string;
   username: string;
   email: string;
@@ -13,6 +15,7 @@ type User = {
 
 const USERS: User[] = [
   {
+    id: "1",
     org: "Lendsqr",
     username: "adedeji",
     email: "adedeji@mail.com",
@@ -21,6 +24,7 @@ const USERS: User[] = [
     status: "active",
   },
   {
+    id: "2",
     org: "Irorun",
     username: "john_d",
     email: "john@mail.com",
@@ -29,6 +33,7 @@ const USERS: User[] = [
     status: "inactive",
   },
   {
+    id: "3",
     org: "Lendsqr",
     username: "mary_ann",
     email: "mary@mail.com",
@@ -37,6 +42,7 @@ const USERS: User[] = [
     status: "pending",
   },
   {
+    id: "4",
     org: "Lendsqr",
     username: "blacklist_me",
     email: "blocked@mail.com",
@@ -77,7 +83,7 @@ function UsersTable() {
 
         <tbody>
           {USERS.map((user) => (
-            <tr key={user.email}>
+            <tr key={user.id}>
               <td>{user.org}</td>
               <td>{user.username}</td>
               <td>{user.email}</td>
@@ -89,7 +95,7 @@ function UsersTable() {
                 </span>
               </td>
               <td className="users-table__actions">
-                <button>⋮</button>
+                <UserActionsMenu userId={user.id} />
               </td>
             </tr>
           ))}
