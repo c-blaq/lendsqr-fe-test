@@ -1,6 +1,7 @@
 import UsersStats from "@/components/pages/users/UsersStats";
 import "./scss/users.scss";
 import UsersTable from "@/components/pages/users/UsersTable";
+import Pagination from "@/components/ui/Pagination";
 
 function Users() {
   return (
@@ -15,7 +16,9 @@ function Users() {
         <UsersTable />
       </section>
 
-      <section className="users__pagination">pagination here</section>
+      <section className="users__pagination">
+        <Pagination />
+      </section>
     </section>
   );
 }

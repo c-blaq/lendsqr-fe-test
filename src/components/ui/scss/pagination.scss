@@ -1,0 +1,54 @@
+@use "@/styles/core/variables" as v;
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: v.$spacing-lg;
+  font-size: v.$font-size-sm;
+
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: v.$spacing-sm;
+
+    select {
+      height: 30px;
+      border-radius: v.$radius-sm;
+      border: 1px solid rgba(v.$text-secondary, 0.2);
+      padding: 0 6px;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    gap: 8px;
+
+    button {
+      width: 30px;
+      height: 30px;
+      border-radius: v.$radius-sm;
+      border: none;
+      cursor: pointer;
+      background: transparent;
+
+      &.active {
+        background: v.$secondary;
+        color: v.$white;
+      }
+
+      &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .pagination {
+    flex-direction: column;
+    gap: v.$spacing-md;
+    align-items: flex-start;
+  }
+}

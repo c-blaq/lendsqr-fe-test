@@ -1,5 +1,6 @@
 import UserActionsMenu from "@/components/ui/UserActionsMenu";
 import "./scss/users-table.scss";
+import UsersFilter from "@/components/ui/UserFilters";
 
 type UserStatus = "active" | "inactive" | "pending" | "blacklisted";
 
@@ -71,9 +72,10 @@ function UsersTable() {
               <th key={header}>
                 <div>
                   <span>{header}</span>
-                  <button className="users-table__filter">
+                  <UsersFilter />
+                  {/* <button className="users-table__filter">
                     <img src="/icons/filter.svg" width={16} height={16} />
-                  </button>
+                  </button> */}
                 </div>
               </th>
             ))}
