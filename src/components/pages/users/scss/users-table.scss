@@ -1,0 +1,101 @@
+@use "@/styles/core/variables" as v;
+
+.users-table {
+  width: 100%;
+  overflow-x: auto;
+  background: v.$white;
+  border-radius: v.$radius-sm;
+  box-shadow: 3px 5px 20px rgba(v.$black, 0.04);
+  padding: 30px;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1000px;
+    color: v.$text-secondary;
+
+    thead {
+      background: v.$white;
+
+      th {
+        text-align: left;
+        font-size: v.$font-size-xs;
+        font-weight: 600;
+        text-transform: uppercase;
+        white-space: nowrap;
+        padding-bottom: v.$spacing-md;
+
+        div {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+      }
+    }
+
+    tr {
+      font-size: v.$font-size-sm;
+      border-top: 1px solid rgba(v.$secondary, 0.1);
+
+      td {
+        padding: 20px 0;
+        white-space: nowrap;
+      }
+      &:first-of-type {
+        border-top: none;
+      }
+    }
+  }
+
+  &__filter {
+    margin-left: 6px;
+    font-size: 10px;
+  }
+
+  &__actions {
+    text-align: right;
+
+    button {
+      font-size: 24px;
+      padding: 4px;
+
+      &:hover {
+        background: v.$bg-main;
+      }
+    }
+  }
+}
+
+// status pills
+.status {
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-size: v.$font-size-sm;
+  text-transform: capitalize;
+
+  &--active {
+    color: v.$success;
+    background: rgba(v.$success, 0.1);
+  }
+
+  &--inactive {
+    color: v.$text-secondary;
+    background: rgba(v.$text-secondary, 0.06);
+  }
+
+  &--pending {
+    color: v.$warning;
+    background: rgba(v.$warning, 0.1);
+  }
+
+  &--blacklisted {
+    color: v.$danger;
+    background: rgba(v.$danger, 0.1);
+  }
+}
+
+@media (max-width: 768px) {
+  table {
+    min-width: 900px;
+  }
+}
