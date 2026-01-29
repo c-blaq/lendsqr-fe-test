@@ -11,9 +11,16 @@ function Users() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getAllUsers()
-      .then(setUsers)
-      .finally(() => setLoading(false));
+    const fetchUsers = async () => {
+      try {
+        const users = await getAllUsers();
+        setUsers(users);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUsers();
   }, []);
 
   if (loading) return <p>Loading users…</p>;
@@ -23,7 +30,7 @@ function Users() {
       <h1 className="users__title">Users</h1>
 
       <section className="users__stats">
-        <UsersStats />
+        <UsersStats users={users} />
       </section>
 
       <section className="users__table">
