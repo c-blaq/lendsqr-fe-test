@@ -51,3 +51,12 @@ export type UserT = {
     relationship: string;
   };
 };
+
+export type UserFiltersT = {
+  org: string;
+  username: string;
+  email: string;
+  phone: string;
+  status: string;
+  date: string;
+};

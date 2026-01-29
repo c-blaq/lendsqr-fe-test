@@ -1,10 +1,13 @@
 import UserActionsMenu from "@/components/ui/UserActionsMenu";
 import "./scss/users-table.scss";
 import UsersFilter from "@/components/ui/UserFilters";
-import type { UserT } from "@/types/user";
+import type { UserFiltersT, UserT } from "@/types/user";
 
 type Props = {
-  users: UserT[];
+  allUsers: UserT[];
+  filteredUsers: UserT[];
+  filters: UserFiltersT;
+  onFilterApply: (filters: UserFiltersT) => void;
 };
 
 const headers = [
@@ -16,7 +19,12 @@ const headers = [
   "Status",
 ];
 
-function UsersTable({ users }: Props) {
+function UsersTable({
+  allUsers,
+  filteredUsers,
+  filters,
+  onFilterApply,
+}: Props) {
   return (
     <div className="users-table">
       <table>
@@ -26,7 +34,11 @@ function UsersTable({ users }: Props) {
               <th key={header}>
                 <div>
                   <span>{header}</span>
-                  <UsersFilter />
+                  <UsersFilter
+                    users={allUsers}
+                    filters={filters}
+                    onApply={onFilterApply}
+                  />
                   {/* <button className="users-table__filter">
                     <img src="/icons/filter.svg" width={16} height={16} />
                   </button> */}
@@ -38,7 +50,7 @@ function UsersTable({ users }: Props) {
         </thead>
 
         <tbody>
-          {users.map((user) => (
+          {filteredUsers.map((user) => (
             <tr key={user.id}>
               <td>{user.org}</td>
               <td>{user.username}</td>
