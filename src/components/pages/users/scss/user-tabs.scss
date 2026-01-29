@@ -1,0 +1,61 @@
+@use "@/styles/core/variables" as v;
+
+.user-tabs {
+  background: v.$white;
+  margin-top: -5px;
+
+  .empty-cont {
+    width: 100%;
+    height: 30px;
+    background: v.$bg-main;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    gap: v.$spacing-lg;
+    padding: 2rem v.$spacing-lg 0;
+    // border-bottom: 1px solid rgba(v.$text-secondary, 0.15);
+    overflow-x: auto;
+  }
+
+  &__trigger {
+    background: none;
+    border: none;
+    padding: v.$spacing-sm 0;
+    color: v.$text-secondary;
+    cursor: pointer;
+    white-space: nowrap;
+    position: relative;
+
+    &[data-state="active"] {
+      color: v.$primary;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: v.$primary;
+      }
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  &__content {
+    padding: v.$spacing-xl;
+    min-height: 200px;
+    box-shadow: 3px 5px 20px rgba(v.$black, 0.04);
+  }
+}
+
+@media (max-width: 640px) {
+  .user-tabs__content {
+    padding: v.$spacing-md;
+  }
+}

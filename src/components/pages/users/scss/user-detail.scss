@@ -1,0 +1,50 @@
+@use "@/styles/core/variables" as v;
+
+.user-info {
+  section {
+    margin-bottom: v.$spacing-xl;
+
+    h3 {
+      font-size: v.$font-size-md;
+      margin-bottom: v.$spacing-lg;
+      color: v.$text-primary;
+      font-weight: 500;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: v.$spacing-lg;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(v.$text-primary, 0.15);
+  }
+}
+
+.detail-item {
+  span {
+    font-size: 12px;
+    color: v.$text-secondary;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  p {
+    font-size: v.$font-size-md;
+    color: v.$text-secondary;
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 1024px) {
+  .user-info__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .user-info__grid {
+    grid-template-columns: 1fr;
+  }
+}
