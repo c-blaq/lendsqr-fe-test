@@ -1,5 +1,17 @@
+import "./scss/users.scss";
+
 function Users() {
-  return <div>Users</div>;
+  return (
+    <section className="users">
+      <h1 className="users__title">Users</h1>
+
+      <section className="users__stats">stats here</section>
+
+      <section className="users__table">table here</section>
+
+      <section className="users__pagination">pagination here</section>
+    </section>
+  );
 }
 
 export default Users;
