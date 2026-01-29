@@ -57,11 +57,15 @@
 
     &__icon {
       position: absolute;
-      right: 12px;
+      right: 24px;
       top: 50%;
       transform: translateY(-50%);
-      pointer-events: none;
-      opacity: 0.6;
+      // pointer-events: none;
+      opacity: 0.9;
+
+      svg {
+        fill: yellow !important;
+      }
     }
   }
 
@@ -69,5 +73,13 @@
     display: flex;
     justify-content: space-between;
     margin-top: v.$spacing-sm;
+    gap: 14px;
+
+    button {
+      width: 100%;
+      height: 40px;
+      border: 1px solid v.$text-secondary;
+      border-radius: v.$radius-md;
+    }
   }
 }

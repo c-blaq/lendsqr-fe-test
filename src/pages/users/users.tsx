@@ -65,7 +65,7 @@ function Users() {
       <h1 className="users__title">Users</h1>
 
       <section className="users__stats">
-        <UsersStats users={users} />
+        <UsersStats users={filteredUsers} />
       </section>
 
       <section className="users__table">

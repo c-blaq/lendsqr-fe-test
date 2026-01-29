@@ -1,3 +1,4 @@
+import ChevronDownIcon from "@/assets/icons/ChevronDown";
 import "./scss/pagination.scss";
 
 type Props = {
@@ -51,19 +52,29 @@ function Pagination({
     <div className="pagination">
       <div className="pagination__info">
         Showing
-        <select
-          value={pageSize}
-          onChange={(e) => onPageSizeChange(Number(e.target.value))}
-        >
-          <option value={10}>10</option>
-          <option value={20}>20</option>
-          <option value={50}>50</option>
-        </select>
+        <div className="pagination__select">
+          <select
+            value={pageSize}
+            onChange={(e) => onPageSizeChange(Number(e.target.value))}
+          >
+            <option value={10}>10</option>
+            <option value={20}>20</option>
+            <option value={50}>50</option>
+          </select>
+
+          <span>
+            <ChevronDownIcon />
+          </span>
+        </div>
         out of {totalItems}
       </div>
 
       <div className="pagination__controls">
-        <button disabled={page === 1} onClick={() => onPageChange(page - 1)}>
+        <button
+          className="pagination__controls--prev"
+          disabled={page === 1}
+          onClick={() => onPageChange(page - 1)}
+        >
           ‹
         </button>
 
@@ -73,7 +84,7 @@ function Pagination({
           ) : (
             <button
               key={item}
-              className={page === Number(item) ? "active" : ""}
+              className={page === Number(item) ? "active" : "inactive"}
               onClick={() => onPageChange(Number(item))}
             >
               {item}
@@ -82,6 +93,7 @@ function Pagination({
         )}
 
         <button
+          className="pagination__controls--next"
           disabled={page === totalPages}
           onClick={() => onPageChange(page + 1)}
         >

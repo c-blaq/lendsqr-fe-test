@@ -1,7 +1,9 @@
 import { Popover } from "radix-ui";
 import "./scss/user-filters.scss";
 import type { UserFiltersT, UserT } from "@/types/user";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import ChevronDownIcon from "@/assets/icons/ChevronDown";
+import CalendarIcon from "@/assets/icons/Calender";
 
 type Props = {
   users: UserT[];
@@ -12,6 +14,7 @@ type Props = {
 function UsersFilter({ users, filters, onApply }: Props) {
   const [open, setOpen] = useState(false);
   const [draftFilters, setDraftFilters] = useState<UserFiltersT>(filters);
+  const dateRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     setDraftFilters(filters);
@@ -48,13 +51,13 @@ function UsersFilter({ users, filters, onApply }: Props) {
       <Popover.Portal>
         <Popover.Content
           className="users-filter"
-          side="left"
-          align="start"
-          sideOffset={5}
+          side="bottom"
+          align="center"
           avoidCollisions
+          alignOffset={20}
           collisionPadding={16}
         >
-          <form>
+          <form onSubmit={(e) => e.preventDefault()}>
             <div>
               <label htmlFor="org">Organization</label>
               <div className="filter-field">
@@ -77,7 +80,9 @@ function UsersFilter({ users, filters, onApply }: Props) {
                       </option>
                     ))}
                 </select>
-                <span className="filter-field__icon">▼</span>
+                <span className="filter-field__icon">
+                  <ChevronDownIcon />
+                </span>
               </div>
             </div>
 
@@ -115,6 +120,7 @@ function UsersFilter({ users, filters, onApply }: Props) {
               <label htmlFor="date">Date</label>
               <div className="filter-field">
                 <input
+                  ref={dateRef}
                   type="date"
                   id="date"
                   value={draftFilters.date}
@@ -125,7 +131,12 @@ function UsersFilter({ users, filters, onApply }: Props) {
                     })
                   }
                 />
-                <span className="filter-field__icon">📅</span>
+                <button
+                  onClick={() => dateRef.current?.showPicker()}
+                  className="filter-field__icon"
+                >
+                  <CalendarIcon />
+                </button>
               </div>
             </div>
 
@@ -169,7 +180,9 @@ function UsersFilter({ users, filters, onApply }: Props) {
                       </option>
                     ))}
                 </select>
-                <span className="filter-field__icon">▼</span>
+                <span className="filter-field__icon">
+                  <ChevronDownIcon />
+                </span>
               </div>
             </div>
             <div className="users-filter__actions">

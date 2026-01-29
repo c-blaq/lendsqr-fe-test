@@ -6,35 +6,69 @@
   align-items: center;
   margin-top: v.$spacing-lg;
   font-size: v.$font-size-sm;
+  color: v.$text-secondary;
 
   &__info {
     display: flex;
     align-items: center;
     gap: v.$spacing-sm;
+  }
+
+  .pagination__select {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
 
     select {
       height: 30px;
+      width: 80px;
       border-radius: v.$radius-sm;
       border: 1px solid rgba(v.$text-secondary, 0.2);
       padding: 0 6px;
+      background: rgba(v.$text-primary, 0.1);
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      padding: 0 28px 0 6px;
+    }
+
+    > span:has(svg) {
+      position: absolute;
+      right: 12px;
+      pointer-events: none; // important
+      display: flex;
+      align-items: center;
+      color: v.$text-secondary;
+
+      svg {
+        width: 12px;
+        height: 12px;
+      }
     }
   }
 
   &__controls {
     display: flex;
-    gap: 8px;
+    gap: v.$spacing-md;
 
-    button {
-      width: 30px;
-      height: 30px;
+    &--prev,
+    &--next {
+      width: 24px;
+      height: 24px;
       border-radius: v.$radius-sm;
       border: none;
-      cursor: pointer;
-      background: transparent;
+      background: rgba(v.$secondary, 0.1);
+      font-size: v.$font-size-lg;
+      color: v.$text-primary;
+    }
 
+    button {
       &.active {
-        background: v.$secondary;
-        color: v.$white;
+        font-weight: 600;
+      }
+
+      &.inactive {
+        color: rgba(v.$text-secondary, 0.6);
       }
 
       &:disabled {

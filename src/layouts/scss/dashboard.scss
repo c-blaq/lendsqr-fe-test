@@ -13,18 +13,24 @@
 
 .dashboard-content {
   flex: 1;
-  padding: v.$spacing-lg;
+  padding: 60px;
   overflow-y: auto;
 }
 
 @media (max-width: 1024px) {
-  .dashboard-content {
-    padding: v.$spacing-md;
+  .dashboard-content,
+  .header {
+    padding: v.$spacing-lg;
   }
 }
 
 @media (max-width: 768px) {
   .dashboard-body {
     flex-direction: column;
+  }
+
+  .dashboard-content,
+  .header {
+    padding: v.$spacing-md;
   }
 }
