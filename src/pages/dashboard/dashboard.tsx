@@ -6,6 +6,7 @@ import type { UserFiltersT, UserT } from "@/types/user";
 
 import "@/pages/users/scss/users.scss";
 import DashboardSkeleton from "@/components/common/DashboardSkeleton";
+import { Link } from "react-router-dom";
 
 function Users() {
   const [loading, setLoading] = useState(true);
@@ -45,11 +46,15 @@ function Users() {
 
       <section className="users__table">
         <UsersTable
-          filteredUsers={users.slice(0, 5)}
+          filteredUsers={users.slice(0, 10)}
           allUsers={users}
           filters={filters}
           onFilterApply={setFilters}
         />
+
+        <div className="view-more">
+          <Link to="/users">View more</Link>
+        </div>
       </section>
     </section>
   );

@@ -15,6 +15,16 @@
     margin: 40px 0;
   }
 
+  .view-more {
+    margin-top: 20px;
+    text-align: right;
+
+    a {
+      text-decoration: none;
+      color: v.$text-primary;
+    }
+  }
+
   //   &__table {
   //     background: v.$white;
   //     border-radius: v.$radius-md;
