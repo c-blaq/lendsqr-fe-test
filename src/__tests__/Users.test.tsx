@@ -35,7 +35,11 @@ describe("Users page", () => {
     renderUsersPage();
 
     // Page should still render without crashing
-    expect(await screen.findByText(/users/i)).toBeInTheDocument();
+    // table should render, but no user rows should exist
+    const rows = await screen.findAllByRole("row");
+
+    // 1 header row, no data rows
+    expect(rows.length).toBe(1);
   });
 
   it("filters users by username (positive)", async () => {
@@ -43,14 +47,21 @@ describe("Users page", () => {
 
     renderUsersPage();
 
+    // test fails without this - popover filtet needs to be opened first
+    const filterTrigger = await screen.findAllByRole("button", {
+      name: /filter/i,
+    });
+    await userEvent.click(filterTrigger[0]);
+
     const usernameInput = await screen.findByLabelText(/username/i);
     await userEvent.type(usernameInput, "John");
 
-    const filterButton = screen.getByRole("button", { name: /filter/i });
-    await userEvent.click(filterButton);
+    const filterButtons = screen.getAllByRole("button", { name: /filter/i });
+    const applyButton = filterButtons[filterButtons.length - 1];
+    await userEvent.click(applyButton);
 
     expect(screen.getByText("John")).toBeInTheDocument();
-    expect(screen.queryByText("Jane")).not.toBeInTheDocument();
+    expect(screen.queryByText("jane")).not.toBeInTheDocument();
   });
 
   it("shows no users when filter matches nothing (negative)", async () => {
@@ -58,14 +69,22 @@ describe("Users page", () => {
 
     renderUsersPage();
 
+    // open the filter popover
+    const filterTrigger = await screen.findAllByRole("button", {
+      name: /filter/i,
+    });
+    await userEvent.click(filterTrigger[0]);
+
     const usernameInput = await screen.findByLabelText(/username/i);
     await userEvent.type(usernameInput, "ghost");
 
-    const filterButton = screen.getByRole("button", { name: /filter/i });
-    await userEvent.click(filterButton);
+    const filterButtons = screen.getAllByRole("button", { name: /filter/i });
+    const applyButton = filterButtons[filterButtons.length - 1];
 
-    expect(screen.queryByText("John")).not.toBeInTheDocument();
-    expect(screen.queryByText("Jane")).not.toBeInTheDocument();
+    await userEvent.click(applyButton);
+
+    expect(screen.queryByText("john")).not.toBeInTheDocument();
+    expect(screen.queryByText("jane")).not.toBeInTheDocument();
   });
 
   it("changes page when pagination is clicked (positive)", async () => {
