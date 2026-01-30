@@ -3,6 +3,7 @@ export const ROUTES = {
   DASHBOARD: "/dashboard",
   USERS: "/users",
   USER_DETAILS: "/users/:id",
+  COMING_SOON: "/coming-soon",
 } as const;
 
 export type RouteKey = keyof typeof ROUTES;

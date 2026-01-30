@@ -1,0 +1,32 @@
+@use "@/styles/core/variables" as v;
+
+.coming-soon {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  h1 {
+    font-size: v.$font-size-xl;
+    color: v.$text-primary;
+    margin-bottom: v.$spacing-sm;
+  }
+
+  p {
+    font-size: v.$font-size-md;
+    color: v.$text-secondary;
+    margin-bottom: v.$spacing-md;
+  }
+
+  &__link {
+    color: v.$primary;
+    font-weight: 500;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

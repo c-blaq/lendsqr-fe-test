@@ -7,37 +7,49 @@ import Users from "@/pages/users/users";
 import UserDetails from "@/pages/users/user-details";
 import { DashboardLayout } from "@/layouts/DashboardLayout";
 import { AuthLayout } from "@/layouts/AuthLayout";
+import ComingSoon from "@/pages/coming-soon/coming-soon";
+import NotFound from "@/pages/not-found/not-found";
 
 export const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Navigate to={ROUTES.LOGIN} replace />,
-  },
-
-  {
-    element: <AuthLayout />,
+    path: "/", // ✅ ROOT PATH (THIS WAS MISSING)
+    errorElement: <NotFound />, // ✅ 404 HANDLER
     children: [
       {
-        path: ROUTES.LOGIN,
-        element: <Login />,
+        index: true,
+        element: <Navigate to={ROUTES.LOGIN} replace />,
       },
-    ],
-  },
 
-  {
-    element: <DashboardLayout />,
-    children: [
       {
-        path: ROUTES.DASHBOARD,
-        element: <Dashboard />,
+        element: <AuthLayout />,
+        children: [
+          {
+            path: ROUTES.LOGIN,
+            element: <Login />,
+          },
+        ],
       },
+
       {
-        path: ROUTES.USERS,
-        element: <Users />,
-      },
-      {
-        path: ROUTES.USER_DETAILS,
-        element: <UserDetails />,
+        element: <DashboardLayout />,
+        children: [
+          {
+            path: ROUTES.DASHBOARD,
+            element: <Dashboard />,
+          },
+          {
+            path: ROUTES.USERS,
+            element: <Users />,
+          },
+          {
+            path: ROUTES.USER_DETAILS,
+            element: <UserDetails />,
+          },
+          {
+            path: ROUTES.COMING_SOON,
+            element: <ComingSoon />,
+          },
+        ],
       },
     ],
   },
