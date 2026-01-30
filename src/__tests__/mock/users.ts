@@ -45,6 +45,7 @@ export const mockUsers: UserT[] = [
       balance: 2532803,
       accountNumber: 5636277054,
       bank: "Assistia",
+      tier: 1,
     },
   },
   {
@@ -91,6 +92,7 @@ export const mockUsers: UserT[] = [
       balance: 3598930,
       accountNumber: 8710736301,
       bank: "Waterbaby",
+      tier: 2,
     },
   },
 ];
