@@ -12,8 +12,7 @@ import NotFound from "@/pages/not-found/not-found";
 
 export const router = createBrowserRouter([
   {
-    path: "/", // ✅ ROOT PATH (THIS WAS MISSING)
-    errorElement: <NotFound />, // ✅ 404 HANDLER
+    path: "/",
     children: [
       {
         index: true,
@@ -48,6 +47,10 @@ export const router = createBrowserRouter([
           {
             path: ROUTES.COMING_SOON,
             element: <ComingSoon />,
+          },
+          {
+            path: "*",
+            element: <NotFound />,
           },
         ],
       },

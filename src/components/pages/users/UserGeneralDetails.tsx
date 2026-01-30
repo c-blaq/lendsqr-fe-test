@@ -33,7 +33,7 @@ function UserGeneralDetails({ user }: Props) {
               value={`${user?.firstName} ${user?.lastName}`}
             />
             <DetailItem label="Phone Number" value={user?.phone} />
-            <DetailItem label="Email Address" value="grace@gmail.com" />
+            <DetailItem label="Email Address" value={user.email} />
             <DetailItem label="BVN" value={user?.profile.bvn} />
             <DetailItem label="Gender" value={user?.profile.gender} />
             <DetailItem

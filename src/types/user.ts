@@ -17,6 +17,7 @@ export type UserT = {
     balance: number;
     accountNumber: number;
     bank: string;
+    tier: number;
   };
 
   profile: {

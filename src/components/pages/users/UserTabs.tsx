@@ -4,6 +4,8 @@ import "./scss/user-tabs.scss";
 import UserGeneralDetails from "./UserGeneralDetails";
 import type { UserT } from "@/types/user";
 import { formatAmount } from "@/utils/formatters";
+import starFilled from "@/assets/img/svg/icons/star-filled.svg";
+import starOutlined from "@/assets/img/svg/icons/star-outlined.svg";
 
 type Props = {
   user: UserT | null;
@@ -38,7 +40,17 @@ function UserTabs({ user }: Props) {
 
         <div className="user-summary__tier">
           <span>User’s Tier</span>
-          <div>★ ★ ☆</div>
+          <div>
+            {Array.from({ length: 3 }).map((_, index) => (
+              <img
+                key={index}
+                src={
+                  user && index < user.account.tier ? starFilled : starOutlined
+                }
+                alt=""
+              />
+            ))}
+          </div>
         </div>
 
         <div className="user-summary__balance">
