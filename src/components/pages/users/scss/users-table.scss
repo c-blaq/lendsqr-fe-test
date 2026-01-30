@@ -25,9 +25,8 @@
         white-space: nowrap;
         padding-bottom: v.$spacing-md;
 
-        div {
+        > div {
           display: flex;
-          align-items: center;
           gap: 10px;
         }
       }
@@ -49,7 +48,6 @@
 
   &__filter {
     margin-left: 6px;
-    font-size: 10px;
   }
 
   &__actions {

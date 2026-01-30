@@ -1,0 +1,29 @@
+@use "@/styles/core/variables" as v;
+
+.card-skeleton {
+  padding: v.$spacing-lg;
+  background: v.$white;
+  border-radius: v.$radius-md;
+  box-shadow: 3px 5px 20px rgba(v.$black, 0.04);
+
+  &__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-bottom: v.$spacing-md;
+    background: v.$bg-main;
+  }
+
+  &__label {
+    width: 60%;
+    height: 12px;
+    margin-bottom: v.$spacing-sm;
+    background: v.$bg-main;
+  }
+
+  &__value {
+    width: 40%;
+    height: 20px;
+    background: v.$bg-main;
+  }
+}

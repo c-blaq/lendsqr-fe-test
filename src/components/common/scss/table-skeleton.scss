@@ -1,0 +1,21 @@
+@use "@/styles/core/variables" as v;
+
+.table-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: v.$spacing-sm;
+
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: v.$spacing-md;
+    padding: v.$spacing-sm;
+    background: v.$white;
+    border-radius: v.$radius-sm;
+
+    span {
+      height: 12px;
+      border-radius: v.$radius-sm;
+    }
+  }
+}

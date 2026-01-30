@@ -5,6 +5,7 @@ import Pagination from "@/components/ui/Pagination";
 import { useEffect, useMemo, useState } from "react";
 import { getAllUsers } from "@/api/user";
 import type { UserFiltersT, UserT } from "@/types/user";
+import DashboardSkeleton from "@/components/common/DashboardSkeleton";
 
 function Users() {
   const [loading, setLoading] = useState(true);
@@ -58,7 +59,7 @@ function Users() {
     setPage(1);
   }, [filters]);
 
-  if (loading) return <p>Loading users…</p>;
+  if (loading) return <DashboardSkeleton />;
 
   return (
     <section className="users">

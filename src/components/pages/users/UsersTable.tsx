@@ -39,9 +39,6 @@ function UsersTable({
                     filters={filters}
                     onApply={onFilterApply}
                   />
-                  {/* <button className="users-table__filter">
-                    <img src="/icons/filter.svg" width={16} height={16} />
-                  </button> */}
                 </div>
               </th>
             ))}

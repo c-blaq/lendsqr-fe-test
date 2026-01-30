@@ -1,0 +1,25 @@
+@use "@/styles/core/variables" as v;
+
+.dashboard-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: v.$spacing-xl;
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: v.$spacing-lg;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__table {
+    width: 100%;
+  }
+}

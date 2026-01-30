@@ -5,6 +5,7 @@ import { getAllUsers } from "@/api/user";
 import type { UserFiltersT, UserT } from "@/types/user";
 
 import "@/pages/users/scss/users.scss";
+import DashboardSkeleton from "@/components/common/DashboardSkeleton";
 
 function Users() {
   const [loading, setLoading] = useState(true);
@@ -32,7 +33,7 @@ function Users() {
     fetchUsers();
   }, []);
 
-  if (loading) return <p>Loading users…</p>;
+  if (loading) return <DashboardSkeleton />;
 
   return (
     <section className="users">

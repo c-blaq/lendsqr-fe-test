@@ -8,10 +8,6 @@
   height: calc(100vh - 100px);
   overflow-y: auto;
 
-  .docs-link {
-    display: none;
-  }
-
   .switch-organization {
     width: 100%;
     display: flex;
@@ -94,6 +90,10 @@
     .sidebar-link__icon {
       opacity: 1;
     }
+  }
+
+  .docs-link {
+    display: none;
   }
 }
 

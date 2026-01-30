@@ -1,6 +1,7 @@
 @use "./core/fonts";
 @use "./core/variables";
 @use "./core/typography";
+@use "./components/skeleton";
 
 .shadow-lg {
   box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.04);
