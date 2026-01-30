@@ -10,6 +10,53 @@ This project focuses on **visual fidelity**, **clean architecture**, **state man
 
 **URL:** https://fathi-adesina-babayeju-lendsqr-fe-test.vercel.app/
 
+---
+
+## Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone <repository-url>
+cd lendsqr-fe-test
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Start development server
+
+```bash
+npm run dev
+```
+
+App runs on:
+
+```
+http://localhost:5173
+```
+
+---
+
+## Running Tests
+
+```bash
+npm run test
+```
+
+### Test Coverage Includes
+
+- Rendering users when API returns data (positive)
+- Handling empty API responses (negative)
+- Filtering users by username
+- Empty results when filter matches nothing
+- Pagination interaction
+
+---
+
 ## Features Implemented
 
 ### Layout & Navigation
@@ -130,51 +177,6 @@ src/
 
 ---
 
-## Getting Started
-
-### 1. Clone the repository
-
-```bash
-git clone <repository-url>
-cd lendsqr-fe-test
-```
-
-### 2. Install dependencies
-
-```bash
-npm install
-```
-
-### 3. Start development server
-
-```bash
-npm run dev
-```
-
-App runs on:
-
-```
-http://localhost:5173
-```
-
----
-
-## Running Tests
-
-```bash
-npm run test
-```
-
-### Test Coverage Includes
-
-- Rendering users when API returns data (positive)
-- Handling empty API responses (negative)
-- Filtering users by username
-- Empty results when filter matches nothing
-- Pagination interaction
-
----
-
 ## Mock API
 
 - Data served from `public/mock/users.json`
@@ -194,6 +196,10 @@ The application uses separate layouts for authentication and the dashboard. This
 - Sidebar items live in `constants/sidebar.ts`
 - Keeps Sidebar component clean and declarative
 - Prevents duplicate route logic
+
+### Loading States
+
+Skeleton loaders are used across data-driven views to provide visual feedback while data is being fetched. This ensures a smoother user experience and prevents layout shifts during loading states.
 
 ---
 
