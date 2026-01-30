@@ -5,12 +5,23 @@ import chevronDownIcon from "@/assets/img/svg/icons/chevron-down.svg";
 import bellIcon from "@/assets/img/svg/icons/bell.svg";
 import searchIcon from "@/assets/img/svg/icons/search.svg";
 import avatar from "@/assets/img/png/avatar.png";
-
 import "./scss/header.scss";
 
-function Header() {
+type Props = {
+  onMenuClick: () => void;
+};
+
+function Header({ onMenuClick }: Props) {
   return (
     <header className="header">
+      <button
+        className="header__menu"
+        aria-label="Open menu"
+        onClick={onMenuClick}
+      >
+        ☰
+      </button>
+
       <div className="header__left">
         <img src={logo} alt="Lendsqr logo" className="header__logo" />
       </div>

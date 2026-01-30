@@ -18,8 +18,7 @@
 }
 
 @media (max-width: 1024px) {
-  .dashboard-content,
-  .header {
+  .dashboard-content {
     padding: v.$spacing-lg;
   }
 }
@@ -29,8 +28,7 @@
     flex-direction: column;
   }
 
-  .dashboard-content,
-  .header {
+  .dashboard-content {
     padding: v.$spacing-md;
   }
 }
