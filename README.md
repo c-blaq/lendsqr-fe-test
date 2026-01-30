@@ -1,73 +1,220 @@
-# React + TypeScript + Vite
+# Lendsqr Frontend Assessment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A frontend dashboard application built with **React + TypeScript + Vite**, implementing a Users management flow that mirrors the Lendsqr Admin design.
 
-Currently, two official plugins are available:
+This project focuses on **visual fidelity**, **clean architecture**, **state management**, **unit testing**, and **responsiveness**, as required by the assessment guidelines.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Live Demo
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**URL:** https://fathi-adesina-babayeju-lendsqr-fe-test.vercel.app/
 
-## Expanding the ESLint configuration
+## Features Implemented
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Layout & Navigation
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Reusable Dashboard layout (Header + Sidebar)
+- Sidebar navigation driven by a configuration constant
+- “Coming Soon” placeholder for unimplemented pages
+- 404 Not Found page
+- Global loading states
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Authentication
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Login page layout (UI-focused as per assessment scope)
+- Input validations
+
+### Dashboard
+
+- Summary statistics cards
+- Clean, lightweight dashboard to avoid duplication with Users page
+
+### Users
+
+- Users listing page
+- Dynamic stats updated from filtered data
+- Client-side filtering (organization, username, email, phone, status, date)
+- Pagination with configurable page size
+- Status badges (Active, Inactive, Pending, Blacklisted)
+
+### User Details
+
+- User summary card
+- User details (personal, employment, socials, and guarantor details)
+- Empty state handling for invalid or missing users
+
+### Quality & Testing
+
+- Unit tests with **positive and negative scenarios**
+- Mock API using static JSON
+- Mobile-responsive layout
+- Clean folder and file structure
+
+---
+
+## Tech Stack
+
+- React 18
+- TypeScript
+- Vite
+- SCSS
+- React Router v6
+- Radix UI (accessible primitives)
+- Vitest + React Testing Library
+- ESLint
+
+---
+
+## Project Structure
+
+```txt
+public/
+├── icons/
+├── mock/
+│   └── users.json
+│
+src/
+├── api/
+│   └── user.ts
+│
+├── assets/
+│   ├── fonts
+│   ├── icons
+│   └── img
+│
+├── components/
+│   ├── commmon
+│   ├── layout
+│   ├── pages/users
+│   └── ui
+│
+├── constants/
+│   └── sidebar.ts
+│
+├── layouts/
+│   ├── scss/
+│   ├── AuthLayout.tsx
+│   └── DashboardLayout.tsx
+│
+├── pages/ (each route have their respective scss file)
+│   ├── users
+│   ├── coming-soon
+│   ├── not-found
+│   └── dashboard
+│
+├── routes/
+│   ├── index.tsx
+│   └── routes.ts
+│
+├── styles/
+│   └── core
+│   └── main.scss
+│
+├── __tests__/
+│   └──mock/
+│   └── Users.test.tsx
+│
+├── test/
+│   └── setup.ts
+│
+├── types/
+│   ├── user.ts
+│   └── navigation.ts
+│
+├── utils/
+│   └── formatters.ts
+│
+└── main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 1. Clone the repository
+
+```bash
+git clone <repository-url>
+cd lendsqr-fe-test
 ```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Start development server
+
+```bash
+npm run dev
+```
+
+App runs on:
+
+```
+http://localhost:5173
+```
+
+---
+
+## Running Tests
+
+```bash
+npm run test
+```
+
+### Test Coverage Includes
+
+- Rendering users when API returns data (positive)
+- Handling empty API responses (negative)
+- Filtering users by username
+- Empty results when filter matches nothing
+- Pagination interaction
+
+---
+
+## Mock API
+
+- Data served from `public/mock/users.json`
+- API abstraction in `src/api/user.ts`
+- Supports client side pagination and filtering
+
+---
+
+## Architecture & Design Decisions
+
+### Layout Structure
+
+The application uses separate layouts for authentication and the dashboard. This avoids repetition and keeps page responsibilities clear.
+
+### Sidebar Configuration
+
+- Sidebar items live in `constants/sidebar.ts`
+- Keeps Sidebar component clean and declarative
+- Prevents duplicate route logic
+
+---
+
+## Accessibility
+
+- Semantic HTML
+- Keyboard-friendly interactions
+- Accessible labels and controls
+
+---
+
+## Responsiveness
+
+- Mobile sidebar toggle
+- Adaptive layouts across breakpoints
+- Smooth transitions using CSS transforms
+
+---
+
+## Assumptions & Limitations
+
+- Authentication is mocked
+- Only General Details tab is active
+- Backend persistence is simulated
