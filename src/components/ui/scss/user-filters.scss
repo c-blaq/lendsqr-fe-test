@@ -80,6 +80,12 @@
       height: 40px;
       border: 1px solid v.$text-secondary;
       border-radius: v.$radius-md;
+
+      &.btn--primary {
+        background: v.$primary;
+        color: v.$white;
+        border: none;
+      }
     }
   }
 }

@@ -48,11 +48,12 @@ export const router = createBrowserRouter([
             path: ROUTES.COMING_SOON,
             element: <ComingSoon />,
           },
-          {
-            path: "*",
-            element: <NotFound />,
-          },
         ],
+      },
+
+      {
+        path: "*",
+        element: <NotFound />,
       },
     ],
   },
